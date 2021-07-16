@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Comment } = require('../../models/Comment.js');
+const { Comment } = require('../../models');
 const sequelize = require('../../config/connection');
 router.get('/', (req, res) => {});
 
