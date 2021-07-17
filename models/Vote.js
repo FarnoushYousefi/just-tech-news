@@ -14,7 +14,7 @@ Vote.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'user',
+        model: 'User',
         key: 'id',
       },
     },
@@ -22,7 +22,7 @@ Vote.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'post',
+        model: 'Post',
         key: 'id',
       },
     },
@@ -33,7 +33,7 @@ Vote.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'vote',
+    modelName: 'Vote',
   }
 );
 
