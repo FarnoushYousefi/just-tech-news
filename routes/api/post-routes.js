@@ -33,13 +33,13 @@ router.get('/', (req, res) => {
           include: {
             model: User,
             attributes: ['username'],
-            as: 'comment_User',
+            as: 'User',
           },
         },
         {
           model: User,
           attributes: ['username'],
-          as: 'Post_User',
+          as: 'User',
         },
       ],
     })
