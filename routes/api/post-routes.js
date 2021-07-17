@@ -21,7 +21,6 @@ router.get('/', (req, res) => {
         ],
       ],
       include: [
-        // include the Comment model here:
         {
           model: Comment,
           attributes: [
@@ -34,11 +33,13 @@ router.get('/', (req, res) => {
           include: {
             model: User,
             attributes: ['username'],
+            as: 'comment_User',
           },
         },
         {
           model: User,
           attributes: ['username'],
+          as: 'Post_User',
         },
       ],
     })
