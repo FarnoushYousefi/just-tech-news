@@ -3,8 +3,10 @@ const sequelize = require('../config/connection');
 const { Post, User, Comment, Vote } = require('../models');
 
 // get all posts for homepage
+//block post for the home page
 router.get('/', (req, res) => {
   console.log('======================');
+  console.log('sssssssssssss', req.session);
   Post.findAll({
     attributes: [
       'id',
@@ -34,10 +36,9 @@ router.get('/', (req, res) => {
     ],
   })
     .then((dbPostData) => {
-      console.log(dbPostData);
+      console.log('bbbbbbbbbbbbbbbb', dbPostData);
       const posts = dbPostData.map((post) => post.get({ plain: true }));
-      console.log(posts);
-
+      console.log('aaaaaaaaaaaa', posts);
       res.render('homepage', { posts });
     })
     .catch((err) => {
@@ -53,6 +54,21 @@ router.get('/login', (req, res) => {
   }
 
   res.render('login');
+});
+router.get('/post/:id', (req, res) => {
+  const post = {
+    id: 1,
+    post_url: 'https://handlebarsjs.com/guide/',
+    title: 'Handlebars Docs',
+    created_at: new Date(),
+    vote_count: 10,
+    comments: [{}, {}],
+    user: {
+      username: 'test_user',
+    },
+  };
+
+  res.render('single-post', { post });
 });
 
 module.exports = router;
