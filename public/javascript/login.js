@@ -9,13 +9,13 @@ async function loginFormHandler(event) {
       method: 'post',
       body: JSON.stringify({
         email,
-        password,
+        password
       }),
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json' }
     });
 
     if (response.ok) {
-      document.location.replace('/');
+      document.location.replace('/dashboard/');
     } else {
       alert(response.statusText);
     }
@@ -35,28 +35,19 @@ async function signupFormHandler(event) {
       body: JSON.stringify({
         username,
         email,
-        password,
+        password
       }),
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json' }
     });
 
-    // req.body.username
-    // "username": "Fanoush",
-    //
-
     if (response.ok) {
-      document.location.replace('/');
-      // https://localhost:3000/
+      document.location.replace('/dashboard/');
     } else {
       alert(response.statusText);
     }
   }
 }
 
-document
-  .querySelector('.login-form')
-  .addEventListener('submit', loginFormHandler);
+document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
 
-document
-  .querySelector('.signup-form')
-  .addEventListener('submit', signupFormHandler);
+document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
